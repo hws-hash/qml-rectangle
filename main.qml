@@ -9,7 +9,7 @@ import QtGraphicalEffects 1.0
 ApplicationWindow {
     id:root
     visible: true
-    width: 1000
+    width: 1600
     height: 480
     title: qsTr("rectangel")
 
@@ -43,7 +43,7 @@ ApplicationWindow {
     //锥型渐变
      Rectangle{
          id:rec3
-         x:120 ;y:12
+         x:100 ;y:12
          width: 200;height: 200
 
          ConicalGradient {
@@ -111,7 +111,7 @@ ApplicationWindow {
      //通过下面代码证明Gradient和LinearGradient是一样的效果也就是都是线性渐变
      Rectangle{
          id:rec6
-         x:12 ;y:220
+         x:750 ;y:12
          width: 200;height: 200
          gradient: Gradient {
                         GradientStop{ position: 0.0; color: "#FFFF0000";}
