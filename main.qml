@@ -1,11 +1,15 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Dialogs 1.2
+import QtGraphicalEffects 1.0
+
+
+//引入线性渐变和锥形渐变，还有径向渐变应该导入库QtGraphicalEffects 1.0
 
 ApplicationWindow {
     id:root
     visible: true
-    width: 640
+    width: 1000
     height: 480
     title: qsTr("rectangel")
 
@@ -22,5 +26,105 @@ ApplicationWindow {
 
     }
 
+
+    Rectangle{
+     id:rec2
+     x:100 ;y:12
+     width: 80;height: 60
+     //颜色渐变，position为起始颜色位置，值为0.0到1.0之间，color为颜色，渐变定义了两个或两个以上的颜色被无缝连接，两个或者两个以上的颜色才能有渐变效果
+     gradient: Gradient{
+     //至少两个
+     GradientStop{position: 0.0 ; color: "red"    }
+     GradientStop{position: 0.5 ; color: "black"}
+     GradientStop{position: 1.0 ; color: "blue"}
+
+     }
+
+    //锥型渐变
+     Rectangle{
+         id:rec3
+         x:120 ;y:12
+         width: 200;height: 200
+
+         ConicalGradient {
+                    width: 200;
+                    height: 200;
+                    gradient: Gradient {
+                        GradientStop{ position: 0.0; color: "#FFFF0000";}
+                        GradientStop{ position: 0.3; color: "#FFFFA000";}
+                        GradientStop{ position: 0.5; color: "#A0FF4000";}
+                        GradientStop{ position: 1.0; color: "#FF800FFF";}
+                    }
+                   //horizontalOffset和verticalOffset是锥形中心点的水平和垂直偏移的像素数。中心点垂直朝上，产生的线，是0度角线。它的值默认为0,这两值都是0的时候就是圆心
+                    horizontalOffset: 0;
+                    verticalOffset: 0;
+                }
+
+     }
+
+
+     //RadialGradient，径向渐变
+     Rectangle{
+         id:rec4
+         x:330 ;y:12
+         width: 200;height: 200
+
+         RadialGradient  {
+                    width: 200;
+                    height: 200;
+                    gradient: Gradient {
+                        GradientStop{ position: 0.0; color: "#FFFF0000";}
+                        GradientStop{ position: 0.3; color: "#FFFFA000";}
+                        GradientStop{ position: 0.5; color: "#A0FF4000";}
+                        GradientStop{ position: 1.0; color: "#FF800FFF";}
+                    }
+                   //horizontalOffset和verticalOffset是锥形中心点的水平和垂直偏移的像素数。中心点垂直朝上，产生的线，是0度角线。它的值默认为0,这两值都是0的时候就是圆心
+                    horizontalOffset: 90;
+                    verticalOffset: 90;
+                }
+
+     }
+
+
+     //线性渐变没有中心一说，所以并没有horizontalOffset: 90;verticalOffset: 90;这两个属性
+     Rectangle{
+         id:rec5
+         x:540 ;y:12
+         width: 200;height: 200
+
+         LinearGradient   {
+                    width: 200;
+                    height: 200;
+                    gradient: Gradient {
+                        GradientStop{ position: 0.0; color: "#FFFF0000";}
+                        GradientStop{ position: 0.3; color: "#FFFFA000";}
+                        GradientStop{ position: 0.5; color: "#A0FF4000";}
+                        GradientStop{ position: 1.0; color: "#FF800FFF";}
+                    }
+                   //horizontalOffset和verticalOffset是锥形中心点的水平和垂直偏移的像素数。中心点垂直朝上，产生的线，是0度角线。它的值默认为0,这两值都是0的时候就是圆心
+//                    horizontalOffset: 90;
+//                    verticalOffset: 90;
+                }
+     }
+
+
+     //通过下面代码证明Gradient和LinearGradient是一样的效果也就是都是线性渐变
+     Rectangle{
+         id:rec6
+         x:12 ;y:220
+         width: 200;height: 200
+         gradient: Gradient {
+                        GradientStop{ position: 0.0; color: "#FFFF0000";}
+                        GradientStop{ position: 0.3; color: "#FFFFA000";}
+                        GradientStop{ position: 0.5; color: "#A0FF4000";}
+                        GradientStop{ position: 1.0; color: "#FF800FFF";}
+                    }
+
+    }
+
+
+
+
+}
 
 }
