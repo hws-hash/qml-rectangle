@@ -22,6 +22,14 @@ ApplicationWindow {
     //边框粗细
     border.width: 4
     radius: 8
+    //鼠标区域
+    MouseArea{
+
+        id:mousearea
+        width: rec1.width
+        height: rec1.height
+        onClicked: rec2.visible=!rec2.visible
+    }
 
     }
 
