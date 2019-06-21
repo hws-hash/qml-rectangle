@@ -137,6 +137,7 @@ ApplicationWindow {
          font.pixelSize: 25
      }
 
+
      Row {
          id:row_1
          x:12;y:240
@@ -146,7 +147,78 @@ ApplicationWindow {
          Text { font.pointSize: 24; text: "Sunken"; style: Text.Sunken; styleColor: "#AAAAAA" }
      }
 
+     Image {
+         //id: pic
+         x:1170 ; y:12
+         width: 40;height: 40
+         source: "/ball.jpg"
+         fillMode: Image.TileHorizontally
+         }
+     Image {
+         //id: pic
+         x:1170 ; y:62
+         width: 40;height: 40
+         source: "/ball.jpg"
+         fillMode: Image.TileVertically
+         }
 
+
+     Image {
+         //id: pic
+         x:1170 ; y:112
+         width: 40;height: 40
+         source: "/ball.jpg"
+         fillMode: Image.Tile
+         }
+
+
+     Image {
+         //id: pic
+         x:1170 ; y:162
+         width: 40;height: 40
+         source: "/ball.jpg"
+         fillMode: Image.PreserveAspectCrop
+         }
+     Image {
+         //id: pic
+         x:1170 ; y:212
+         width: 40;height: 40
+         source: "/ball.jpg"
+         fillMode: Image.PreserveAspectFit
+        // clip: true
+         }
+
+     Image {
+         //id: pic
+         x:1220 ; y:12
+         width: 40;height: 40
+         //还能加载网络图片
+         source : "http://b79.photo.store.qq.com/psu?/7c595bd9-7aa7-4b74-92af-b0874c1528c8/ASXihnWbyI62kCamKmOGjQACj1HTNuIEgpyYcF5R5rw!/b/YdIhIS**bgAAYpG2JS9OawAA&bo=ngL2AQAAAAABFFg!&rf=viewer_4&t=5"
+         }
+
+     //图像水平旋转，镜像模式可以mirror属性
+     Row{
+         id:row_2
+         x:1220
+         y:62
+         Image {
+             //id: pic
+             x:0 ; y:0
+             width: 40;height: 40
+             source: "/ball.jpg"
+             mirror: false
+             }
+         Image {
+             //id: pic
+             x:40 ; y:0
+             width: 40;height: 40
+             source: "/ball.jpg"
+
+             mirror: true
+             }
+
+
+     }
 
 
 }
