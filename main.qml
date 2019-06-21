@@ -14,7 +14,6 @@ ApplicationWindow {
     title: qsTr("rectangel")
 
     Rectangle{
-
     id:rec1
     x:12;y:12
     width: 80; height: 60
@@ -26,10 +25,9 @@ ApplicationWindow {
 
     }
 
-
     Rectangle{
      id:rec2
-     x:100 ;y:12
+     x:12 ;y:80
      width: 80;height: 60
      //颜色渐变，position为起始颜色位置，值为0.0到1.0之间，color为颜色，渐变定义了两个或两个以上的颜色被无缝连接，两个或者两个以上的颜色才能有渐变效果
      gradient: Gradient{
@@ -39,6 +37,7 @@ ApplicationWindow {
      GradientStop{position: 1.0 ; color: "blue"}
 
      }
+    }
 
     //锥型渐变
      Rectangle{
@@ -61,8 +60,6 @@ ApplicationWindow {
                 }
 
      }
-
-
      //RadialGradient，径向渐变
      Rectangle{
          id:rec4
@@ -106,8 +103,6 @@ ApplicationWindow {
 //                    verticalOffset: 90;
                 }
      }
-
-
      //通过下面代码证明Gradient和LinearGradient是一样的效果也就是都是线性渐变
      Rectangle{
          id:rec6
@@ -122,9 +117,36 @@ ApplicationWindow {
 
     }
 
+     Text {
+         id: text_1
+         x:960 ;y:100
+         width: 200;height: 200
+         text: "a text test1111111111111111111111111111111111111"
+         //elide属性。宽度不足显示文本，显示为省略号，
+         //省略样式：前(Text.ElideLeft)，中(Text.ElideMiddle)，后(Text.ElideRight)，默认(Text.ElideNone)
+         elide: Text.ElideMiddle
+         //设置文本样式
+         style: Text.Raised
+         //styleColor被用作概括文本的轮廓颜色，凸起或凹陷的文字阴影颜色。如果没有指定样式，则它不起作用。
+         styleColor: "red"
+         //垂直对齐
+         verticalAlignment: Text.AlignHCenter
+         //水平对齐
+         horizontalAlignment: Text.AlignVCenter
+         //字体大小
+         font.pixelSize: 25
+     }
+
+     Row {
+         id:row_1
+         x:12;y:240
+         Text { font.pointSize: 24; text: "Normal" }
+         Text { font.pointSize: 24; text: "Raised"; style: Text.Raised; styleColor: "#AAAAAA" }
+         Text { font.pointSize: 24; text: "Outline";style: Text.Outline; styleColor: "red" }
+         Text { font.pointSize: 24; text: "Sunken"; style: Text.Sunken; styleColor: "#AAAAAA" }
+     }
 
 
 
-}
 
 }
